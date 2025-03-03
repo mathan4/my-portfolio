@@ -16,31 +16,28 @@ const ContactComponent = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Send the email using EmailJS
-    emailjs
-      .send(
+    try {
+      // Send the email using EmailJS
+      const result = await emailjs.send(
         "service_017ywt7",
-        "YOUR_TEMPLATE_ID",
+        "template_wc8v57a",
         formData,
         "EVhFCzJFFZN9pt19g"
-      )
-      .then((result) => {
-        console.log("Email successfully sent!", result.text);
-        alert("Thank you for contacting me! Your message has been sent.");
-        // Reset the form
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      })
-      .catch((error) => {
-        console.log("Failed to send the email. Error:", error.text);
-        alert("Something went wrong, please try again.");
+      );
+      console.log("Email successfully sent!", result.text);
+      alert("Thank you for contacting me! Your message has been sent.");
+      // Reset the form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
       });
+    } catch (error) {
+      console.log("Failed to send the email. Error:", error.text);
+      alert("Something went wrong, please try again.");
+    }
   };
 
   return (
@@ -110,9 +107,7 @@ const ContactComponent = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium">
-                  Your Message
-                </label>
+                <label className="block text-sm font-medium">Your Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -151,7 +146,7 @@ const ContactComponent = () => {
 
           <div className="flex flex-col items-center md:items-start">
             <div className="text-[#34E1EA] mb-2">
-              {/* Add icon here */}
+              {/* LinkedIn Icon */}
               <span className="text-xl">
                 <svg
                   fill="#0077B5"
@@ -165,19 +160,24 @@ const ContactComponent = () => {
                 </svg>
               </span>
             </div>
-            <h3 className="text-lg font-semibold">Phone</h3>
-            <p className="text-sm text-gray-300 mt-1">+91 98765 43210</p>
+            <h3 className="text-lg font-semibold">LinkedIn</h3>
+            <a
+              href="https://www.linkedin.com/in/mathan-s-23aab0223/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-[#34E1EA] underline mt-1"
+            >
+              linkedin.com/in/mathan-s-23aab0223
+            </a>
           </div>
 
           <div className="flex flex-col items-center md:items-start">
             <div className="text-[#34E1EA] mb-2">
-              {/* Add icon here */}
-              <span className="text-2xl">✉️</span>
+              {/* Add email icon here */}
+              <span className="text-2xl">📧</span>
             </div>
             <h3 className="text-lg font-semibold">Email</h3>
-            <p className="text-sm text-gray-300 mt-1">
-              mathanselvaraj1103@gmail.com
-            </p>
+            <p className="text-sm text-gray-300 mt-1">mathan.s@example.com</p>
           </div>
         </div>
       </div>
