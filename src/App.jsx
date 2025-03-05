@@ -11,6 +11,7 @@ import SkillsComponent from "./Components/SkillsComponent/SkillsComponent";
 import "./App.css";
 import ProjectsComponent from "./Components/ProjectsComponent/ProjectsComponent";
 import ContactComponent from "./Components/ContactComponent/ContactComponent";
+import { Analytics } from '@vercel/analytics/react';
 
 const Navbar = () => {
   const location = useLocation(); // To get current path
@@ -129,6 +130,7 @@ const App = () => {
         <Route path="/skills" element={<SkillsComponent />} />
         <Route path="/project" element={<ProjectsComponent />} />
         <Route path="/contact" element={<ContactComponent />} />
+        <Analytics/>
       </Routes>
     </BrowserRouter>
   );

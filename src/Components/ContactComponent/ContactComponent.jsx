@@ -177,7 +177,7 @@ const ContactComponent = () => {
               <span className="text-2xl">📧</span>
             </div>
             <h3 className="text-lg font-semibold">Email</h3>
-            <p className="text-sm text-gray-300 mt-1">mathan.s@example.com</p>
+            <p className="text-sm text-gray-300 mt-1">mathanselvaraj1103@gmail.com</p>
           </div>
         </div>
       </div>
