@@ -123,14 +123,16 @@ const Navbar = () => {
 
 const App = () => {
   return (
+    
     <BrowserRouter>
+    <Analytics/>
       <Navbar />
       <Routes>
         <Route exact path="/" element={<HeroComponent />} />
         <Route path="/skills" element={<SkillsComponent />} />
         <Route path="/project" element={<ProjectsComponent />} />
         <Route path="/contact" element={<ContactComponent />} />
-        <Analytics/>
+       
       </Routes>
     </BrowserRouter>
   );
